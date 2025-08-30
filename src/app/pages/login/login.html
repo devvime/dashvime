@@ -13,35 +13,20 @@
               </div>
               <div class="col-lg-4 login">
                 <div class="card-body" data-aos="fade-up" data-aos-delay="400">
-                  <h2 class="mb-3">User Login</h2>
-                  <div class="input-group">
-                    <div class="input-group-text">
-                      <i class="bi bi-person-fill"></i>
-                    </div>
-                    <input
-                      type="email"
-                      placeholder="Email..."
-                      class="form-control mb-2" />
-                  </div>
+                  @if (currentStep === steps.login) {
+                  <app-login-step
+                    (currentStep)="getCurrentStep($event)"></app-login-step>
+                  }
 
-                  <div class="input-group">
-                    <div class="input-group-text">
-                      <i class="bi bi-lock-fill"></i>
-                    </div>
-                    <input
-                      type="password"
-                      placeholder="Password..."
-                      class="form-control mb-2" />
-                  </div>
+                  @if (currentStep === steps.register) {
+                  <app-register-step
+                    (currentStep)="getCurrentStep($event)"></app-register-step>
+                  }
 
-                  <div class="buttons py-3">
-                    <button type="button"
-                      class="btn btn-primary">Login</button>
-                    <button
-                      type="button"
-                      class="btn btn-outline-primary">Register</button>
-                    <button type="button" class="btn">Forgot password</button>
-                  </div>
+                  @if (currentStep === steps.forgotPassword) {
+                  <app-forgot-password-step
+                    (currentStep)="getCurrentStep($event)"></app-forgot-password-step>
+                  }
                 </div>
               </div>
             </div>

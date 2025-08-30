@@ -1,0 +1,42 @@
+<div class="register" data-aos="fade-in" data-aos-delay="200">
+  <h2 class="mb-3">User register</h2>
+
+  <div class="input-group">
+    <div class="input-group-text">
+      <i class="bi bi-person-circle"></i>
+    </div>
+    <input
+      type="text"
+      placeholder="Name..."
+      class="form-control mb-2" />
+  </div>
+
+  <div class="input-group">
+    <div class="input-group-text">
+      <i class="bi bi-envelope-at"></i>
+    </div>
+    <input
+      type="email"
+      placeholder="Email..."
+      class="form-control mb-2" />
+  </div>
+
+  <div class="input-group">
+    <div class="input-group-text">
+      <i class="bi bi-lock-fill"></i>
+    </div>
+    <input
+      type="password"
+      placeholder="Password..."
+      class="form-control mb-2" />
+  </div>
+
+  <div class="buttons py-3">
+    <button
+      type="button"
+      class="btn btn-primary">Register</button>
+    <button type="button" class="btn btn-outline-secondary" (click)="goLogin()">
+      Back to login
+    </button>
+  </div>
+</div>
