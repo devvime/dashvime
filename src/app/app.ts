@@ -9,5 +9,5 @@ import { Navbar } from './shared/components/navbar/navbar';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('dashvime');
+  public isLoggedin = false;
 }

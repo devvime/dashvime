@@ -1,0 +1,32 @@
+section {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-image: url(/images/login-2.avif);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #eee;
+  .card {
+    box-shadow: 2px 5px 10px #ccc;
+    .image {
+      @media (max-width: 991px) {
+        display: none;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    .login {
+      display: flex;
+      align-items: center;
+      .buttons {
+        button {
+          margin-right: 0.3rem;
+          outline: none;
+        }
+      }
+    }
+  }
+}
