@@ -10,6 +10,7 @@
         formControlName="name"
         type="text"
         placeholder="Name..."
+        [class.is-invalid]="errors.name"
         class="form-control mb-2" />
     </div>
 
@@ -21,6 +22,7 @@
         formControlName="email"
         type="email"
         placeholder="Email..."
+        [class.is-invalid]="errors.email"
         class="form-control mb-2" />
     </div>
 
@@ -32,14 +34,16 @@
         formControlName="password"
         type="password"
         placeholder="Password..."
+        [class.is-invalid]="errors.password"
         class="form-control mb-2" />
     </div>
 
     <div class="buttons py-3">
       <button
         [disabled]="loading"
+        (click)="submit()"
         type="button"
-        class="btn btn-primary" (click)="submit()">Register</button>
+        class="btn btn-primary">Register</button>
       <button type="button" class="btn btn-outline-secondary"
         (click)="goLogin()">
         Back to login

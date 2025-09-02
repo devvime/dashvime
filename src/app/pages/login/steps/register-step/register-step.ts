@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core';
+import { Component, effect, EventEmitter, inject, Output } from '@angular/core';
 import { LoginSteps } from '../../login';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../../shared/services/auth-service';
@@ -30,8 +30,14 @@ export class RegisterStep {
     password: ['', Validators.required]
   });
   public loading = false;
+  public errors = {
+    name: false,
+    email: false,
+    password: false
+  }
 
   async submit() {
+    if (!this.validate()) return;
     this.loading = true;
     const data = this.form.value as RegisterUserData;
     const response = await this.authService.register(data);
@@ -50,6 +56,26 @@ export class RegisterStep {
       text: 'Access your email and active your account.'
     });
     this.loading = false;
+    this.currentStep.emit(LoginSteps.login);
+  }
+
+  validate(): boolean {
+    if (this.form.value.name === '') {
+      this.errors.name = true;
+      return false;
+    }
+    if (this.form.value.email === '') {
+      this.errors.email = true;
+      return false;
+    }
+    if (this.form.value.password === '') {
+      this.errors.password = true;
+      return false;
+    }
+    this.errors.name = false;
+    this.errors.email = false;
+    this.errors.password = false;
+    return true;
   }
 
   goLogin() {
